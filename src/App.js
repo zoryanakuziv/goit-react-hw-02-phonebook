@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Container from "./components/container/Container";
 import Form from "./components/form/Form";
 import Filter from "./components/filter/Filter";
 import ContactList from "./components/contacts/Contacts";
@@ -43,14 +44,14 @@ export default class App extends Component {
   };
   render() {
     return (
-      <>
+      <Container>
         <Form onSubmit={this.formSubmitHandler} />
         <Filter filter={this.state.filter} onChange={this.filterHandler} />
         <ContactList
           contacts={this.filteredContacts()}
           onDelete={this.deleteContact}
         />
-      </>
+      </Container>
     );
   }
 }

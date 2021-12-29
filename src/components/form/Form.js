@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "@emotion/styled";
 
 import { Component } from "react";
 import { nanoid } from "nanoid";
+import { Label, FormInput, Button } from "./Form.styled";
 
 export default class Form extends Component {
   state = {
@@ -32,9 +32,9 @@ export default class Form extends Component {
     const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
+        <Label htmlFor={this.nameInputId}>
           Name
-          <input
+          <FormInput
             type="text"
             value={name}
             onChange={this.handleChange}
@@ -44,9 +44,10 @@ export default class Form extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </label>
-        <label htmlFor={this.numberInputId}>
-          <input
+        </Label>
+        <Label htmlFor={this.numberInputId}>
+          Number
+          <FormInput
             type="tel"
             name="number"
             value={number}
@@ -56,8 +57,8 @@ export default class Form extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        </label>
-        <button type="submit">Add contact</button>
+        </Label>
+        <Button type="submit">Add contact</Button>
       </form>
     );
   }
